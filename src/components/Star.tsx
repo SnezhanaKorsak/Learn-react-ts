@@ -4,11 +4,15 @@ import {ValueType} from "./UncontrolledRating";
 
 type StarPropsType = {
     selected: boolean
-    onClickStar ?: () => void
+    value: ValueType
+    onClick: (value: ValueType) => void
 }
+
 export function Star(props: StarPropsType) {
     return (
-        <span onClick={props.onClickStar}>{ props.selected ? <span><b>star </b></span> : <span>star </span>} </span>
+        <span onClick={() => {props.onClick(props.value)}}>
+            {props.selected ? <b>star </b> : 'star '}
+        </span>
     )
 
 }

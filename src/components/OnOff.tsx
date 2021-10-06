@@ -1,22 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
 
 type OnOffPropsType = {
-   /* on : boolean*/
+    on: boolean
+    setOn: (on: boolean) => void
 }
 
-export function OnOff( props: OnOffPropsType) {
-    const [on, setOn] = useState(false)
-    const buttonStyle = {
-        display: 'inline-block',
-        width: '30px',
-        height: '20px',
-        border: '1px solid black',
-        padding: '2px',
-        margin: '5px',
-        lineHeight: '20px',
-    }
+export function OnOff(props: OnOffPropsType) {
 
-    const OnStyle = {
+    const onStyle = {
         display: 'inline-block',
         width: '30px',
         height: '20px',
@@ -24,9 +15,9 @@ export function OnOff( props: OnOffPropsType) {
         padding: '2px',
         margin: '5px',
         lineHeight: '20px',
-        backgroundColor: on ? 'green' : 'white'
+        backgroundColor: props.on ? 'green' : 'white'
     }
-    const OffStyle = {
+    const offStyle = {
         display: 'inline-block',
         width: '30px',
         height: '20px',
@@ -34,29 +25,26 @@ export function OnOff( props: OnOffPropsType) {
         padding: '2px',
         margin: '5px',
         lineHeight: '20px',
-        backgroundColor: !on ? 'red' : 'white'
+        backgroundColor: !props.on ? 'red' : 'white'
     }
-
     const indicatorStyle = {
         display: 'inline-block',
         width: '10px',
         height: '10px',
         border: '1px solid black',
         borderRadius: '5px',
-       backgroundColor: on ? 'green' : 'red'
+        backgroundColor: props.on ? 'green' : 'red'
     }
-
-
 
     const changeSetOn = () => {
-        setOn(!on)
+        props.setOn(!props.on)
     }
 
-  return (
-      <div>
-            <div style={OnStyle} onClick={changeSetOn}>On</div>
-            <div style={OffStyle} onClick={changeSetOn}>Off</div>
+    return (
+        <div>
+            <div style={onStyle} onClick={changeSetOn}>On</div>
+            <div style={offStyle} onClick={changeSetOn}>Off</div>
             <div style={indicatorStyle}/>
-      </div>
-  )
+        </div>
+    )
 }

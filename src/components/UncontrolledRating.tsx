@@ -8,15 +8,12 @@ type RatingPropsType = {
 export function UncontrolledRating(props: RatingPropsType ) {
     let [value, setValue] = useState<ValueType>(0)
 
-    const onClickStar = (value:ValueType) => {
-        setValue(value)
-    }
 
     return <div>
-        <Star selected={value > 0} onClickStar={() => onClickStar(1)}/>
-        <Star selected={value > 1} onClickStar={() => onClickStar(2)}/>
-        <Star selected={value > 2} onClickStar={() => onClickStar(3)}/>
-        <Star selected={value > 3} onClickStar={() => onClickStar(4)}/>
-        <Star selected={value > 4} onClickStar={() => onClickStar(5)}/>
+        <Star selected={value > 0} onClick={setValue} value={1}/>
+        <Star selected={value > 1} onClick={setValue} value={2}/>
+        <Star selected={value > 2} onClick={setValue} value={3}/>
+        <Star selected={value > 3} onClick={setValue} value={4}/>
+        <Star selected={value > 4} onClick={setValue} value={5}/>
     </div>
 }
