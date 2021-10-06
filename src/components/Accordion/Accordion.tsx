@@ -1,12 +1,18 @@
-import React from "react";
-import {AccordionBody} from "./AccordionBody";
+import React, {useState} from "react";
 import {AccordionTitle} from "./AccordionTitle";
+import {AccordionBody} from "./AccordionBody";
 
-export function Accordion() {
+type AccordionPropsType = {
+    title: string
+}
+export function Accordion(props: AccordionPropsType) {
+    const [collapsed, setCollapsed] = useState(false)
+
+    const toggleHandler = () => {setCollapsed(!collapsed)}
     return (
         <div>
-            <AccordionTitle/>
-            <AccordionBody/>
+            <AccordionTitle title={props.title} toggleHandler={toggleHandler}/>
+            {!collapsed && <AccordionBody/>}
         </div>
 
     )

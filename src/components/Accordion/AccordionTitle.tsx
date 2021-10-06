@@ -1,9 +1,16 @@
 import React from "react";
 
-export function AccordionTitle() {
+type AccordionTitleType = {
+    title: string
+    toggleHandler: () => void
+}
+
+export function AccordionTitle(props: AccordionTitleType) {
     return (
         <div>
-            <h3>Menu</h3>
+            <h3 onClick={props.toggleHandler}>
+                {props.title}
+            </h3>
         </div>
 
     )
