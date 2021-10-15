@@ -1,0 +1,26 @@
+.select .main {
+    display: inline-block;
+    border: 2px solid cornflowerblue;
+    border-radius: 5px;
+    min-width: 100px;
+    min-height: 20px;
+    margin: 20px auto 5px auto;
+    padding: 5px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.items {
+    border: 1px solid cornflowerblue;
+    border-radius: 5px;
+    width: 100px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.item.selected {
+    background-color: deepskyblue;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}

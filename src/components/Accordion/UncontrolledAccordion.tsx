@@ -12,7 +12,7 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
         <div>
 
             <AccordionTitle1 title={props.title} onChangeHandler={onChangeHandler}/>
-            {!collapsed && <AccordionBody/>}
+            {!collapsed && <AccordionBody1/>}
         </div>
 
     )
@@ -28,6 +28,19 @@ function AccordionTitle1(props: AccordionTitleType) {
             <h3 onClick={props.onChangeHandler}>
                 {props.title}
             </h3>
+        </div>
+
+    )
+}
+
+export function AccordionBody1() {
+    return (
+        <div>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
         </div>
 
     )
