@@ -5,7 +5,8 @@ type OnOffPropsType = {
     setOn: (on: boolean) => void
 }
 
-export function OnOff(props: OnOffPropsType) {
+
+export const OnOff: React.FC<OnOffPropsType> =  ({on, setOn}) => {
 
     const onStyle = {
         display: 'inline-block',
@@ -15,7 +16,7 @@ export function OnOff(props: OnOffPropsType) {
         padding: '2px',
         margin: '5px',
         lineHeight: '20px',
-        backgroundColor: props.on ? 'green' : 'white'
+        backgroundColor: on ? 'green' : 'white'
     }
     const offStyle = {
         display: 'inline-block',
@@ -25,7 +26,7 @@ export function OnOff(props: OnOffPropsType) {
         padding: '2px',
         margin: '5px',
         lineHeight: '20px',
-        backgroundColor: !props.on ? 'red' : 'white'
+        backgroundColor: !on ? 'red' : 'white'
     }
     const indicatorStyle = {
         display: 'inline-block',
@@ -33,11 +34,11 @@ export function OnOff(props: OnOffPropsType) {
         height: '10px',
         border: '1px solid black',
         borderRadius: '5px',
-        backgroundColor: props.on ? 'green' : 'red'
+        backgroundColor: on ? 'green' : 'red'
     }
 
     const changeSetOn = () => {
-        props.setOn(!props.on)
+        setOn(!on)
     }
 
     return (
@@ -48,3 +49,5 @@ export function OnOff(props: OnOffPropsType) {
         </div>
     )
 }
+
+export const OnOffContainer = React.memo(OnOff)

@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Rating} from "./components/Rating";
+import {RatingContainer} from "./components/Rating";
 import {UncontrolledAccordion} from "./components/Accordion/UncontrolledAccordion";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff";
 import {UncontrolledRating, ValueType} from "./components/UncontrolledRating";
 import {Accordion} from "./components/Accordion/Accordion";
-import {OnOff} from "./components/OnOff";
+import {OnOffContainer} from "./components/OnOff";
 import {UncontrolledInput} from "./components/UncontrolledInput";
 import {ControlledCheckbox, ControlledInput, ControlledSelect} from "./components/ControlledInput";
 import {Select} from "./components/Select";
+import {Example1} from "./components/ReactMemo";
 
 export type ItemsType = {
     id: number
@@ -51,16 +52,18 @@ function App() {
             <ControlledSelect/>
 
           {/*  <UncontrolledOnOff/>*/}
-            <OnOff on={on} setOn={setOn}/>
+          <OnOffContainer on={on} setOn={setOn}/>
 
             {/*<UncontrolledRating/>*/}
-            <Rating value={ratingValue} onClick={setRatingValue}/>
+            <RatingContainer value={ratingValue} onClick={setRatingValue}/>
 
             <UncontrolledAccordion title={"Menu"}/>
             <UncontrolledAccordion title={"Users"}/>
 
             {/*<Accordion title={"Users"} collapsed={collapsed} onChange={onChangeHandler} items={items}/>*/}
             <Select value={value} items={items}  onChange={setValue}/>
+
+            <Example1 />
 
 
 
