@@ -2,14 +2,15 @@ import React, {useState} from 'react';
 import './App.css';
 import {RatingContainer} from "./components/Rating";
 import {UncontrolledAccordion} from "./components/Accordion/UncontrolledAccordion";
-import {UncontrolledOnOff} from "./components/UncontrolledOnOff";
-import {UncontrolledRating, ValueType} from "./components/UncontrolledRating";
-import {Accordion} from "./components/Accordion/Accordion";
+import {ValueType} from "./components/UncontrolledRating";
 import {OnOffContainer} from "./components/OnOff";
-import {UncontrolledInput} from "./components/UncontrolledInput";
 import {ControlledCheckbox, ControlledInput, ControlledSelect} from "./components/ControlledInput";
 import {Select} from "./components/Select";
 import {Example1} from "./components/ReactMemo";
+import {WithUseMemoExample, WithUseMemoHelpsToReactMemo} from "./components/useMemoExample";
+import {Clock} from "./components/Clock/Clock";
+
+
 
 export type ItemsType = {
     id: number
@@ -51,8 +52,8 @@ function App() {
             <ControlledCheckbox/>
             <ControlledSelect/>
 
-          {/*  <UncontrolledOnOff/>*/}
-          <OnOffContainer on={on} setOn={setOn}/>
+            {/*  <UncontrolledOnOff/>*/}
+            <OnOffContainer on={on} setOn={setOn}/>
 
             {/*<UncontrolledRating/>*/}
             <RatingContainer value={ratingValue} onClick={setRatingValue}/>
@@ -61,11 +62,14 @@ function App() {
             <UncontrolledAccordion title={"Users"}/>
 
             {/*<Accordion title={"Users"} collapsed={collapsed} onChange={onChangeHandler} items={items}/>*/}
-            <Select value={value} items={items}  onChange={setValue}/>
+            <Select value={value} items={items} onChange={setValue}/>
 
-            <Example1 />
-
-
+           {/* <Example1/>
+            <WithUseMemoExample/>
+            <WithUseMemoHelpsToReactMemo/>*/}
+            <hr/>
+            <Clock mode={"digital"}/>
+            <Clock mode={"analog"}/>
 
         </div>
     );
